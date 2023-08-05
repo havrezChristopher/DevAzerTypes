@@ -1,1 +1,2 @@
 Intro Js Azertypes
+ok
