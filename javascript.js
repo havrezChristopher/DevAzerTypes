@@ -14,13 +14,19 @@ do {
 while (choix !== "mots" && choix !== "phrase")
 
 //Répétez la question tant que l’utilisateur n’a pas écrit “mots” ou “phrases”.
-if (choix=="mots") {
-    liste=[...listeMots]
+// Code de terrence 
+switch (choix) {
+    case "mots":
+        liste=[...listeMots]
+        
+        break;
+    case "phrase":
+        liste=[...listeMots2]
+    default:
+        alert(" Fuck Off Ecrit Correctement !")
+        break;
 }
-if (choix=="phrase") {
-    liste=[...listeMots2]
-}
-
+// Code de terrence 
 
 for (let i = 0; i < liste.length; i++) {
     mots=prompt("veuillez Entre " + liste[i])
