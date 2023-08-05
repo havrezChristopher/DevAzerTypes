@@ -9,30 +9,29 @@ function afficherResultat(score,liste) {
 }
 
 // choisirPhrasesOuMots : cette fonction demande à l’utilisateur s’il veut jouer avec des phrases ou des mots.
-
-
-//Demandez à l’utilisateur s’il veut la liste de mots ou la liste de phrases. 
-do {
-    choix=prompt(`Veuillez Faire un choix entre mots Ou phrase ` )
+function choisirPhrasesOuMots(score,liste) {
     
-    
-} 
-while (choix !== "mots" && choix !== "phrase")
-
-//Répétez la question tant que l’utilisateur n’a pas écrit “mots” ou “phrases”.
-// Code de terrence 
-switch (choix) {
-    case "mots":
-        liste=[...listeMots]
+    //Demandez à l’utilisateur s’il veut la liste de mots ou la liste de phrases. 
+    do {
+        choix=prompt(`Veuillez Faire un choix entre mots Ou phrase ` )
         
-        break;
-    case "phrase":
-        liste=[...listeMots2]
-    default:
-        alert(" Fuck Off Ecrit Correctement !")
-        break;
+        
+    } 
+    while (choix !== "mots" && choix !== "phrase")
+    
+    switch (choix) {
+        case "mots":
+            liste=[...listeMots]
+            
+            break;
+        case "phrase":
+            liste=[...listeMots2]
+        default:
+            alert(" Fuck Off Ecrit Correctement !")
+            break;
+    }
 }
-// Code de terrence 
+
 
 for (let i = 0; i < liste.length; i++) {
     mots=prompt("veuillez Entre " + liste[i])
