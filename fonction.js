@@ -7,12 +7,11 @@ function afficherResultat(resultat, iterateur) {
 }
 
 
-
 // choisirPhrasesOuMots : 
 //cette fonction demande à l’utilisateur s’il veut jouer avec des phrases ou des mots. 
 
 function choisirPhrasesOuMots() {
-
+    let liste;
     let choixFonction
     do {
         choixFonction = prompt(`Veuillez Faire un choix entre mots Ou phrase `)
@@ -33,7 +32,7 @@ function choisirPhrasesOuMots() {
             break;
 
     }
-
+    lancerBoucleDeJeu(liste)
 }
 //lancerBoucleDeJeu : cette fonction contient la boucle principale de jeu, 
 //c'est-à-dire la boucle for qui propose les mots/phrases au joueur, 
@@ -41,6 +40,7 @@ function choisirPhrasesOuMots() {
 //et retourne le nombre de mots/phrases correctement tapés ;
 
 function lancerBoucleDeJeu(liste) {
+    let score=0
     for (let i = 0; i < liste.length; i++) {
         mots=prompt("veuillez Entre " + liste[i])
         
@@ -55,3 +55,9 @@ function lancerBoucleDeJeu(liste) {
 //c’est elle qui s’occupe de lancer toutes les autres. 
 //En d’autres termes, c’est elle qui va appeler les fonctions que vous venez d’écrire. 
 
+function lancerJeu() {
+
+    choisirPhrasesOuMots()
+    
+    
+}
