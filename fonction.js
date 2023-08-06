@@ -3,8 +3,11 @@
 //et affiche le résultat du joueur ; 
 
 function afficherResultat(resultat, iterateur) {
-    console.log(`votre Scores! = ${resultat}"/" ${iterateur + 1}`);
-}
+    
+    let select=`${resultat} sur  ${iterateur }`
+    let zoneScore =document.querySelector(".zoneScore span")
+    zoneScore.innerHTML= select
+   }
 
 
 // choisirPhrasesOuMots : 
