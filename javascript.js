@@ -1,5 +1,5 @@
 
- lancerJeu()
+  lancerJeu()
 
 // Sélectionnez avec la méthode getElementById : 
 
