@@ -4,10 +4,10 @@
 
 function afficherResultat(resultat, iterateur) {
 
-    let select=`${resultat} sur  ${iterateur }`
-    let zoneScore =document.querySelector(".zoneScore span")
-    zoneScore.innerHTML= select
-   }
+    let select = `${resultat} sur  ${iterateur}`
+    let zoneScore = document.querySelector(".zoneScore span")
+    zoneScore.innerHTML = select
+}
 
 
 // choisirPhrasesOuMots : 
@@ -46,7 +46,7 @@ function afficherResultat(resultat, iterateur) {
 //     let score=0
 //     for (let i = 0; i < liste.length; i++) {
 //         mots=prompt("veuillez Entre " + liste[i])
-        
+
 //         if (mots==liste[i]) {
 //             score+=1
 //         }
@@ -59,42 +59,52 @@ function afficherResultat(resultat, iterateur) {
 //En d’autres termes, c’est elle qui va appeler les fonctions que vous venez d’écrire. 
 
 function lancerJeu() {
-// l’input dans lequel le joueur va écrire son texte    
-    let i =0;
-    let liste=[...listeMots]
-    let btnValiderMot=document.getElementById("btnValiderMot")
+    // l’input dans lequel le joueur va écrire son texte    
+    let i = 0;
+    let score = 0
+    let liste = [...listeMots]
+    let btnValiderMot = document.getElementById("btnValiderMot")
     let inputEcriture = document.getElementById("inputEcriture")
     afficherProposition(liste[i])
     btnValiderMot.addEventListener("click", () => {
-        console.log(listeMots[i])
-        i++
-        afficherProposition(liste[i])
-//*************************************FIN EXERCICES 3****************************************** */        
-        if (listeMots[i] == undefined) {
-            afficherProposition("Merci Terence de M***")
-        }
-//************************************VIDER CHAMPS ECRITURE*************************************** */    
-    }
-    
-    );
-// le bouton de validation.
-inputEcriture.addEventListener("click", () => {
-    console.log("***OK***")
-}
- );
-// créez une fonction afficherProposition, qui va prendre en paramètre 
-//le mot à afficher,et afficher ce mot dans la div zoneProposition ;  
-// utilisez cette fonction pour afficher les mots à proposer. 
-function afficherProposition(Proposition) {
-      
-    let zoneProposition =document.querySelector(".zoneProposition")   
-    zoneProposition.innerHTML=Proposition
 
-}
+        i++
+        if (inputEcriture.value == liste[i - 1]) {
+            score++
+            afficherResultat(score, i)
+        }
+        else {
+            afficherResultat(score, i)
+
+        }
+        afficherProposition(liste[i])
+        inputEcriture.value = ""
+
+        if (liste[i] == undefined) {
+            afficherProposition("Jeux Terminer")
+            btnValiderMot.disabled = true
+        }
+
+    });
+    // le bouton de validation.
+    //à chaque fois que l’utilisateur clique sur Valider, videz le champ inputEcriture. 
+    inputEcriture.addEventListener("click", () => {
+
+    }
+    );
+    // créez une fonction afficherProposition, qui va prendre en paramètre 
+    //le mot à afficher,et afficher ce mot dans la div zoneProposition ;  
+    // utilisez cette fonction pour afficher les mots à proposer. 
+    function afficherProposition(Proposition) {
+
+        let zoneProposition = document.querySelector(".zoneProposition")
+        zoneProposition.innerHTML = Proposition
+
+    }
 
     // choisirPhrasesOuMots()
-    
-    
+
+
 }
 
 
