@@ -77,34 +77,53 @@ function lancerJeu() {
             afficherResultat(score, i)
 
         }
+        
+        //à chaque fois que l’utilisateur clique sur Valider, videz le champ inputEcriture. 
         afficherProposition(liste[i])
         inputEcriture.value = ""
-
+        
         if (liste[i] == undefined) {
             afficherProposition("Jeux Terminer")
             btnValiderMot.disabled = true
         }
-
+        
     });
     // le bouton de validation.
-    //à chaque fois que l’utilisateur clique sur Valider, videz le champ inputEcriture. 
     inputEcriture.addEventListener("click", () => {
-
+        
     }
     );
-    // créez une fonction afficherProposition, qui va prendre en paramètre 
-    //le mot à afficher,et afficher ce mot dans la div zoneProposition ;  
-    // utilisez cette fonction pour afficher les mots à proposer. 
-    function afficherProposition(Proposition) {
 
-        let zoneProposition = document.querySelector(".zoneProposition")
-        zoneProposition.innerHTML = Proposition
+        // créez une fonction afficherProposition, qui va prendre en paramètre 
+        //le mot à afficher,et afficher ce mot dans la div zoneProposition ;  
+        // utilisez cette fonction pour afficher les mots à proposer. 
+        function afficherProposition(Proposition) {
 
+            let zoneProposition = document.querySelector(".zoneProposition")
+            zoneProposition.innerHTML = Proposition
+
+        }
+        //Lorsque cet événement se déclenche, modifiez le texte proposé pour le remplacer par une phrase si 
+        //l’utilisateur a cliqué sur “Phrases”, ou un mot si l’utilisateur a cliqué sur “Mots”.
+        let listeBtnRadio = document.querySelectorAll(".optionSource input")
+    for (let j = 0; j< listeBtnRadio.length; j++) {
+        listeBtnRadio[j].addEventListener("change", (event) => {
+            
+            if (event.target.value === "1") {
+                liste = listeMots
+                
+            } else {
+                
+                liste = listeMots2
+                
+            }
+          
+             
+            afficherProposition(liste[j-1])
+        })
     }
-
-    // choisirPhrasesOuMots()
-
-
 }
+
+// choisirPhrasesOuMots()
 
 
